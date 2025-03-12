@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Leadership Programs Infographic</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        canvas {
+            margin-top: 20px;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .legend div {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+        .info-section {
+            text-align: left;
+            padding: 15px;
+            background: #eef;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Top AI Leadership Programs - 2025</h1>
+        <p>Updated Weekly</p>
+        
+        <div class="info-section">
+            <h2>Why AI Leadership Matters</h2>
+            <p>AI is transforming industries. Equip yourself with the latest AI leadership skills to stay ahead in the digital economy.</p>
+        </div>
+        
+        <h2>Cost Comparison</h2>
+        <canvas id="costChart"></canvas>
+        
+        <h2>Program Duration Distribution</h2>
+        <canvas id="durationChart"></canvas>
+    </div>
+    
+    <script>
+        const programNames = ["MIT AI Strategy", "Wharton AI Leadership", "MIT xPRO C-Suite", "Kellogg AI Transformation", "Oxford AI Program", "Purdue AI Business"];
+        const costs = [2800, 9500, 8400, 15000, 3250, 5500];
+        const durations = [6, 6, 7, 12, 6, 4];
+        
+        const ctx1 = document.getElementById('costChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: programNames,
+                datasets: [{
+                    label: 'Cost (USD)',
+                    data: costs,
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        
+        const ctx2 = document.getElementById('durationChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: programNames,
+                datasets: [{
+                    label: 'Duration (Weeks)',
+                    data: durations,
+                    backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff', '#ff9f40']
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+</body>
+</html>
